@@ -1,0 +1,31 @@
+/* Cielo compartido. El mosaico estático también funciona sin JavaScript. */
+.editor { position:relative; isolation:isolate; }
+.sky { position:absolute; inset:0; z-index:-1; pointer-events:none; overflow:hidden;
+  background: url(stars.svg) repeat,radial-gradient(ellipse at 83% 22%,#26345280,transparent 58%); }
+.light .sky {background:url(stars.svg) repeat,radial-gradient(ellipse at 80% 12%,#d9ddd150,transparent 60%);}
+.sky::after {content:"";position:absolute;inset:0;
+  background-image:linear-gradient(#9ab2cb,#9ab2cb),linear-gradient(#e1ba92,#e1ba92);
+  background-repeat:no-repeat;background-position:68% 13%,90% 75%;background-size:2px 2px,2px 2px;}
+.top #theme {margin-left:auto}
+.avatar {background:url(stars.svg),radial-gradient(ellipse at 70% 57%,#38405e 0%,#202e46 42%,#121e32 85%); border-color:#57677a;}
+.avatar::after,.avatar::before{display:none}
+.avatar img {width:58%;transform:translate(12%,7%);animation:none}
+.avatar figcaption{color:#e6be9b;background:#142032;padding:4px 8px}.avatar figcaption span{color:#b9c8dc}
+.atlas{position:absolute;inset:0;width:100%;height:100%;fill:none;stroke:#8aa5bf;stroke-width:1}
+.atlas rect{width:3px;height:3px;fill:#dcdfec;stroke:none}.atlas .pole{fill:#ffbf80;stroke:none}
+.light .avatar{background:url(stars.svg),radial-gradient(ellipse at 70% 60%,#e0e6e5,#e9e7dc 70%);}
+.light .atlas{stroke:#617583}.light .atlas rect{fill:#405863}.light .atlas .pole{fill:#a75525}
+.meteor{position:absolute;top:12%;right:8%;width:3px;height:3px;background:#ffe2b7;opacity:0;
+ box-shadow:3px -2px #dcb48e,6px -4px #ae8f74,9px -6px #8e7f76,12px -8px #737279;}
+@media(prefers-reduced-motion:no-preference){
+ .moving .sky::after{animation:twinkle 5s ease-in-out infinite alternate}
+ .moving .atlas path:first-child{stroke-dasharray:1;animation:trace 2.4s ease both}
+ .moving .meteor{animation:shoot 18s linear 4s infinite}
+ .moving .sprite{transition:transform .18s}.moving .shortcuts a:is(:hover,:focus-visible) .sprite{transform:translateY(-2px)}
+ .moving .tabs a[aria-current]{animation:tab-in .25s ease-out}
+}
+@keyframes trace{from{stroke-dashoffset:1}to{stroke-dashoffset:0}}
+@keyframes twinkle{from{opacity:.18}to{opacity:.95}}
+@keyframes shoot{0%{opacity:0;transform:translate(0,0)}1%{opacity:1}5%{opacity:0;transform:translate(-65px,46px)}100%{opacity:0;transform:translate(-65px,46px)}}
+@keyframes tab-in{from{box-shadow:inset 0 0 transparent}to{box-shadow:inset 0 2px var(--accent)}}
+@media(max-width:680px){.top{height:auto;min-height:64px;flex-wrap:wrap;gap:6px;padding:8px}.top button{padding:0 7px;font-size:11px}.top .brand{font-size:19px}.brand img{width:25px;margin-right:3px}.sky{background-size:720px 540px,auto}.avatar img{width:39%}}

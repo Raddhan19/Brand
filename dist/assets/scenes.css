@@ -1,0 +1,37 @@
+/* Las escenas comparten el cielo y los colores del editor. */
+.avatar,.light .avatar{background:transparent;border:0;box-shadow:none;overflow:visible;isolation:auto}
+.avatar img{width:70%;transform:translate(7%,4%);filter:drop-shadow(0 8px 20px #8685bd26)}
+.hero{position:relative}.shortcuts{grid-template-columns:repeat(2,minmax(0,1fr))}
+.ridge{position:relative;isolation:isolate;overflow:hidden;max-width:680px;margin:22px 0 0;mask-image:linear-gradient(to right,transparent,#000 6% 94%,transparent)}
+.ridge img{display:block;width:100%;height:auto;image-rendering:pixelated}.ridge-front{position:absolute;inset:0}
+.moon{position:absolute;top:15%;left:60%;width:15%;aspect-ratio:1;background:repeating-linear-gradient(0deg,#f2c495 0 7px,#e1b281 7px 9px);clip-path:polygon(29% 0,71% 0,71% 5%,83% 5%,83% 12%,92% 12%,92% 23%,97% 23%,97% 34%,100% 34%,100% 66%,95% 66%,95% 78%,88% 78%,88% 88%,75% 88%,75% 96%,62% 96%,62% 100%,36% 100%,36% 96%,24% 96%,24% 90%,12% 90%,12% 80%,6% 80%,6% 67%,0 67%,0 34%,5% 34%,5% 22%,12% 22%,12% 12%,21% 12%,21% 5%,29% 5%)}
+.drive{position:relative;width:145px;height:95px;margin:10px 0 20px;color:var(--mint)}
+.drive-slot{position:absolute;bottom:7px;width:130px;height:27px;background:var(--bar);border:2px solid var(--mut);box-shadow:3px 3px var(--line)}
+.drive-slot:before{content:"";position:absolute;left:14px;top:5px;width:71px;height:5px;background:var(--bg);border:1px solid var(--mut)}
+.drive i{position:absolute;bottom:19px;left:106px;width:7px;height:4px;background:var(--mint)}
+.disk{position:absolute;bottom:26px;left:32px;clip-path:inset(0 0 25%);color:var(--accent)}
+.project-files article:first-child{border-top:3px solid var(--accent)}
+.circuit{max-width:680px;padding-left:24px;border-left:2px solid var(--mut)}
+.circuit details{position:relative;background:var(--side);border:1px solid var(--line);margin-bottom:16px;padding:6px 16px}
+.circuit details:before{content:"";position:absolute;left:-26px;top:27px;width:24px;height:2px;background:var(--mint)}
+.circuit summary{padding:12px 0;color:var(--fg);font:600 18px/1.45 system-ui;text-transform:none;letter-spacing:normal}
+.circuit p{padding-bottom:12px;color:var(--mut)}.circuit details:focus-within{border-color:var(--accent)}.circuit details:focus-within:before{background:var(--accent)}
+.radio{display:block;max-width:680px;width:100%;height:auto;color:var(--mint);margin:24px 0}.waves{stroke:var(--accent)}.reply{fill:var(--accent)}
+@media(prefers-reduced-motion:no-preference){
+ .moon{animation:moonrise 2.3s ease-out both}
+ .disk{animation:insert 1.4s ease-in-out both}
+ .drive i{animation:power 1.6s steps(2,end) both}
+ .project-files article:first-child{animation:read-file 1.2s .7s ease both}
+ .circuit details:before{transform-origin:left;animation:connect .7s ease-out both}
+ .circuit details:nth-child(2):before{animation-delay:.4s}.circuit details:nth-child(3):before{animation-delay:.8s}
+ .waves path{animation:broadcast 1s ease-out 2}.waves path:nth-child(2){animation-delay:.16s}.waves path:nth-child(3){animation-delay:.32s}
+ .reply{animation:answer 2.5s ease both}
+}
+@keyframes moonrise{from{transform:translateY(155%)}to{transform:translateY(0)}}
+@keyframes insert{from{transform:translateY(-28px);clip-path:inset(0)}to{transform:translateY(0);clip-path:inset(0 0 25%)}}
+@keyframes power{0%,65%{opacity:.2}100%{opacity:1}}
+@keyframes read-file{from{border-top-color:var(--line)}to{border-top-color:var(--accent)}}
+@keyframes connect{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes broadcast{0%{opacity:.12}45%{opacity:1}100%{opacity:.5}}
+@keyframes answer{0%,65%{opacity:.15}75%{opacity:1}82%{opacity:.25}100%{opacity:1}}
+@media(max-width:680px){.avatar img{width:47%}.shortcuts{grid-template-columns:1fr}}

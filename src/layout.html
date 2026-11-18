@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>$title · Jun.dev</title>
+  <meta name="description" content="Portafolio personal de Jun. Ciberseguridad, Linux y soporte TI desde Perú.">
+  <link rel="icon" href="assets/lobo.png">
+  <link rel="stylesheet" href="assets/style.css">
+  <link rel="stylesheet" href="assets/sky.css">
+  <link rel="stylesheet" href="assets/scenes.css">
+  <script defer src="assets/app.js"></script>
+</head>
+<body>
+  <a class="skip" href="#contenido">Saltar al contenido</a>
+  <header class="top">
+    <a class="brand" href="index.html"><img src="assets/lobo.png" alt="">Jun<span>.dev</span></a>
+    <span class="workspace">/ espacio de trabajo</span>
+    <button id="theme" hidden>Cambiar tema</button>
+  </header>
+  <div class="shell">
+    <aside><details open id="tree"><summary>Explorador</summary>
+      <div class="folder">⌄ &nbsp; jun.dev /</div>
+      <nav aria-label="Secciones">$explorer</nav>
+    </details></aside>
+    <div class="editor">
+      <div class="sky" aria-hidden="true"></div>
+      <nav class="tabs" aria-label="Archivos del portafolio">$tabs</nav>
+      <main id="contenido" tabindex="-1">
+        <div class="path">jun.dev <span>/</span> <strong>$file</strong></div>
+        $content
+      </main>
+    </div>
+  </div>
+  <footer><span>Jun.dev</span><span>$file &nbsp; / &nbsp; ES</span></footer>
+</body></html>
